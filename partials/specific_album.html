@@ -1,0 +1,63 @@
+<div id="player-container"class="row">
+      <div class= "row-height">
+        
+        <div ng-model="musicPlayer"class="player-container col-md-8 col-md-offset-2">
+          <div id="table-content-partials" class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+            <div class="col-md-12 albumDiv">
+              <div class="row">
+                <div class="col-md-3 albumImgCol">
+                  <div class="col-md-12 albumImg">
+                  </div>
+                </div><!-- /col-md-3-->
+                <div class="col-md-8 albumInfoCol">
+                  <div class="col-md-12 albumTitleContent">
+                    <h1>{{name}}</h1>
+                  </div>
+                  <div class="col-md-12 albumDetails">
+                    <h3>{{artists}}</h3>
+                  </div>
+                </div> <!-- /albumInfoCol-->
+              </div>
+            </div> <!-- /albumDiv-->
+            <table class="table table-hover">
+               <thead>
+                  <tr class="header-row-specific-album">
+                    <th class="col-md-1 col-sm-1 col-xs-1" data-col="tracklist"></th>
+                    <th class="col-md-9 col-sm-9 col-xs-9" data-col="songName"><a ng-click="sortType = 'name'; sortReverse = !sortReverse">Name
+                    <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+                    </a></th>
+
+                    
+
+                    <th class="col-md-1 col-sm-1 col-xs-1" data-col="rating"></th>
+                    <th class="col-md-1 col-sm-1 col-xs-1" data-col="rating"><span class="glyphicon glyphicon-heart"aria-hidden="true"></span></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr class="song-row clickable-row " height="60" ng-repeat="song in songs | filter: {album: theAlbum.album} | filter: {artist: theArtist.artist} | orderBy:sortType:sortReverse | filter:searchSongs" ng-click="showLeft()">
+                    <td class="col-md-1" data-col="tracklist">
+                      <span class="content">
+                        <button aria-label="Play: song" data-id= "play" class="aria-play-button btn-link"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> 
+                        </button>
+                      </span>
+                    </td>
+                    <td class="col-md-9" data-col="songName">
+                      <span class="content">{{song.name}}</span>
+                    </td>
+                   
+                    <td class="col-md-1" data-col="delete">
+                         <button aria-label="Play: song" data-id= "play" class="aria-play-button btn-link" ng-click="killSong(song)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                         </button> 
+                    </td>
+                    <td class="col-md-1 rating" data-col="rating">
+                         <button aria-label="Play: song" data-id= "play" class="aria-play-button btn-link"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+          </div> <!-- div for table content -->
+        </div> <!-- div player-container -->
+      </div> <!-- div class row height -->
+    </div> <!-- div class row -->

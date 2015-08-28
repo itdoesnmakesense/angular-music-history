@@ -1,0 +1,54 @@
+{
+  "songs": [
+    {
+    "name": "Me & Mr. Jones",
+    "album": "Back to Black", 
+    "artist": "Amy Winehouse"
+    }, 
+    {
+    "name": "Deja Vu",
+    "album": "B-Day",
+    "artist": "Beyonce"
+    }, 
+    {
+    "name": "Shoop",
+    "album": "Waiting to Exhale",
+    "artist": "Whitney Houston"
+    }, 
+    {
+    "name": "Heavy Metal & Reflective",
+    "album": "Broke With Expensive Tastes",
+    "artist": "Azealia Banks"
+    }, 
+    {
+    "name": "Youth In Trouble",
+    "album": "Pacifica",
+      "artist": "The Presets"
+    },
+    {
+    "name": "Love is a Losing Game",
+    "album": "Back to Black",
+    "artist": "Amy Winehouse"
+    }, 
+    {
+    "name": "Upgrade U",
+    "album": "B-day",
+    "artist": "Beyonce"
+    }, 
+    {
+    "name": "Sittin' Up In My Room",
+    "album": "Waiting to Exhale",
+    "artist": "Brandy"
+    }, 
+    {
+    "name": "Ice Princess",
+    "album": "Broke With Expensive Tastes",
+    "artist": "Azealia Banks"
+    }, 
+    {
+    "name": "Its Cool",
+    "album": "Pacifica",
+    "artist": "The Presets"
+    } 
+  ]
+}

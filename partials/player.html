@@ -1,0 +1,101 @@
+ <!-- <div class="alert alert-info">
+    <p>Sort Type: {{ sortType }}</p>
+    <p>Sort Reverse: {{ sortReverse }}</p>
+    <p>Search Query: {{ searchSongs }}</p>
+  </div> -->
+<div id="player-container"class="row">
+      <div class= "row-height">
+        <div id="div-hid" ng-show="leftContainer" class= "col-md-3"> <!--left container -->
+          <div class="row">
+            <div id="left-container" class="col-md-12">
+              <div class= "col-md-12 addSong">
+                <div><input type="text" ng-model="newSong.name" placeholder="Song Name"></div>
+                <div><input type="text" ng-model="newSong.artist" placeholder="Song Artist"></div>
+                <div><input type="text" ng-model="newSong.album" placeholder="Song Album"></div>
+                  <button class="btn btn-default btn-block" ng-click="addSong()">Add</button>
+                </div><!-- addSong -->
+              <div class="col-md-12 searchText">
+               <!--  <div>
+                  <input type="text" ng-model="searchText" />
+                </div> -->
+                <!--   <select ng-model="theSongs" ng-options="value.name group by value.artist for value in songs">
+                <option></option>
+                </select> -->
+                <!-- <select ng-model="theArtist" ng-options="value.artist for value in songs | unique: 'artist' | filter: theAlbum.artist">
+               
+                </select>
+                <select ng-model="theAlbum" ng-options="value.album for value in songs | unique: 'album' | filter: {artist: theArtist.artist}">
+                
+                </select>
+                <button ng-model="resetBtn" ng-click="resetBtn()">reset</button> -->
+                 <form>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-search"></i>
+              </div>
+                <input type="text" class="form-control" placeholder="Search for Song" ng-model="searchSongs">
+            </div>      
+          </div>
+        </form>
+              </div><!-- searchText -->
+            </div><!-- div left-container -->
+          </div><!-- div class row -->
+        </div><!-- div-hid -->
+        <div ng-model="musicPlayer"class="player-container col-md-8">
+          <div id="table-content" class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+            <table class="table table-hover">
+               <thead>
+                  <tr class="header-row">
+                    <th class="col-md-1 col-sm-1 col-xs-1" data-col="tracklist"></th>
+                    <th class="col-md-3 col-sm-3 col-xs-3" data-col="songName"><a ng-click="sortType = 'name'; sortReverse = !sortReverse">Name
+                    <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+                    </a></th>
+
+                    <th class="col-md-3 col-sm-3 col-xs-3" data-col="artist"><a ng-click="sortType = 'artist'; sortReverse = !sortReverse">Artist
+                    <span ng-show="sortType == 'artist' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'artist' && sortReverse" class="fa fa-caret-up"></span>
+                    </a></th>
+
+                    <th class="col-md-3 col-sm-3 col-xs-3" data-col="album"><a ng-click="sortType = 'album'; sortReverse = !sortReverse">Album
+                    <span ng-show="sortType == 'album' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'album' && sortReverse" class="fa fa-caret-up"></span>
+                    </a></th>
+
+                    <th class="col-md-1 col-sm-1 col-xs-1" data-col="rating"></th>
+                    <th class="col-md-1 col-sm-1 col-xs-1" data-col="rating"><span class="glyphicon glyphicon-heart"aria-hidden="true"></span></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr class="song-row clickable-row " height="60" ng-repeat="song in songs | filter: {album: theAlbum.album} | filter: {artist: theArtist.artist} | orderBy:sortType:sortReverse | filter:searchSongs" ng-click="showLeft()">
+                    <td class="col-md-1" data-col="tracklist">
+                      <span class="content">
+                        <button aria-label="Play: song" data-id= "play" class="aria-play-button btn-link"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> 
+                        </button>
+                      </span>
+                    </td>
+                    <td class="col-md-3" data-col="songName">
+                      <span class="content">{{song.name}}</span>
+                    </td>
+                    <td class="col-md-3 artist" data-col="artist">
+                      <span class="content">{{song.artists}}</span>
+                    </td>
+                    <td class="col-md-3 album-name" data-col="album">
+                      <span class="content">{{song.album.name}}</span>
+                    </td>
+                    <td class="col-md-1" data-col="delete">
+                         <button aria-label="Play: song" data-id= "play" class="aria-play-button btn-link" ng-click="killSong(song)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                         </button> 
+                    </td>
+                    <td class="col-md-1 rating" data-col="rating">
+                         <button aria-label="Play: song" data-id= "play" class="aria-play-button btn-link"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+          </div> <!-- div for table content -->
+        </div> <!-- div player-container -->
+      </div> <!-- div class row height -->
+    </div> <!-- div class row -->
